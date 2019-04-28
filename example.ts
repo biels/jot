@@ -1,11 +1,12 @@
 /* load libraries (test if 'jot' is defined already, so we can use this in the browser where 'require' is not available) */
-var jot = jot || require("./jot");
+import * as jot from "./jot";
+
 
 /* The Base Document */
 
-var doc = {
-	title: "Hello World!",
-	count: 10,
+const doc = {
+    title: "Hello World!",
+    count: 10,
 };
 
 console.log("Original Document")
@@ -18,9 +19,9 @@ console.log("")
  *
  */
 
-var user1 = new jot.LIST([
-	new jot.APPLY("title", new jot.SPLICE(0, 5, "It's a Small")),
-	new jot.APPLY("count", new jot.MATH("add", 10))
+var user1: any = new jot.LIST([
+    new jot.APPLY("title", new jot.SPLICE(0, 5, "It's a Small")),
+    new jot.APPLY("count", new jot.MATH("add", 10))
 ]);
 
 console.log("User 1")
@@ -34,12 +35,13 @@ console.log("")
  *
  */
 
-var user2 = new jot.LIST([
-	new jot.APPLY("title", new jot.SPLICE(5, 1, ", Small ")),
-	new jot.APPLY("count", new jot.MATH('add', 5))
+let user2: any = new jot.LIST([
+    new jot.APPLY("title", new jot.SPLICE(5, 1, ", Small ")),
+    new jot.APPLY("count", new jot.MATH('add', 5))
 ]);
 
 console.log("User 2")
+console.log(user2.serialize());
 console.log(user2.apply(doc)); // { key1: 'My Program', key2: 20 }
 console.log("")
 

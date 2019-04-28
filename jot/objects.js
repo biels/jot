@@ -1,12 +1,12 @@
 /* A library of operations for objects (i.e. JSON objects/Javascript associative arrays).
 
    new objects.PUT(key, value)
-    
+
     Creates a property with the given value. This is an alias for
     new objects.APPLY(key, new values.SET(value)).
 
    new objects.REM(key)
-    
+
     Removes a property from an object. This is an alias for
     new objects.APPLY(key, new values.SET(objects.MISSING)).
 
@@ -27,9 +27,9 @@
     with any other operations in this module.
 
     Example:
-    
+
     To replace the value of a property with a new value:
-    
+
       new objects.APPLY("key1", new values.SET("value"))
 
 	or
@@ -37,7 +37,7 @@
       new objects.APPLY({ key1: new values.SET("value") })
 
    */
-   
+
 var util = require('util');
 
 var deepEqual = require("deep-equal");
@@ -52,10 +52,10 @@ var LIST = require("./lists.js").LIST;
 exports.module_name = 'objects'; // for serialization/deserialization
 
 exports.APPLY = function () {
-	if (arguments.length == 1 && typeof arguments[0] == "object") {
+	if (arguments.length === 1 && typeof arguments[0] == "object") {
 		// Dict form.
 		this.ops = arguments[0];
-	} else if (arguments.length == 2 && typeof arguments[0] == "string") {
+	} else if (arguments.length === 2 && typeof arguments[0] == "string") {
 		// key & operation form.
 		this.ops = { };
 		this.ops[arguments[0]] = arguments[1];

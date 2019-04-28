@@ -123,7 +123,7 @@ after which the base document will include both user's changes:
 
 It would also have been possible to rebase `user1` and then compose the operations in the other order, for the exact same result.
 
-See [example.js](example.js) for the complete example.
+See [example.ts](example.ts) for the complete example.
 
 ### Compared to other OT libraries
 
